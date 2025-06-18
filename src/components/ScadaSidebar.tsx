@@ -34,9 +34,10 @@ const navigationItems = [
 ]
 
 export function ScadaSidebar() {
-  const { collapsed } = useSidebar()
+  const { state } = useSidebar()
   const location = useLocation()
   const currentPath = location.pathname
+  const isCollapsed = state === "collapsed"
 
   const isActive = (path: string) => currentPath === path
   const getNavClass = (path: string) =>
@@ -45,10 +46,10 @@ export function ScadaSidebar() {
       : "text-slate-300 hover:bg-slate-800 hover:text-white"
 
   return (
-    <Sidebar className={collapsed ? "w-16" : "w-64"} collapsible>
+    <Sidebar className={isCollapsed ? "w-16" : "w-64"} collapsible="icon">
       <SidebarContent className="bg-slate-900 border-r border-slate-800">
         <div className="p-4">
-          {!collapsed && (
+          {!isCollapsed && (
             <div className="text-center">
               <h2 className="text-lg font-bold text-white mb-1">FUXA SCADA</h2>
               <p className="text-xs text-slate-400">Industrial Control System</p>
@@ -71,7 +72,7 @@ export function ScadaSidebar() {
                       className={`flex items-center gap-3 px-3 py-2 rounded-md ${getNavClass(item.url)}`}
                     >
                       <item.icon className="h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
+                      {!isCollapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -80,7 +81,7 @@ export function ScadaSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
 
-        {!collapsed && (
+        {!isCollapsed && (
           <SidebarGroup>
             <SidebarGroupLabel className="text-slate-400 text-xs font-medium">
               PLC STATUS
