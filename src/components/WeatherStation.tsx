@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { thermometer, Droplets, Wind } from "lucide-react"
+import { Thermometer, Droplets, Wind } from "lucide-react"
 
 export function WeatherStation() {
   return (
@@ -9,7 +9,7 @@ export function WeatherStation() {
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <CardTitle className="text-white flex items-center gap-2">
-            <thermometer className="w-5 h-5 text-blue-400" />
+            <Thermometer className="w-5 h-5 text-blue-400" />
             Weather Station
           </CardTitle>
           <Badge className="bg-blue-600">Live</Badge>

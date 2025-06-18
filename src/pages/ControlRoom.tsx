@@ -1,4 +1,3 @@
-
 import { useState } from "react"
 import { PlcCard } from "@/components/PlcCard"
 import { PlcDetailView } from "@/components/PlcDetailView"
@@ -7,11 +6,11 @@ import { WeatherStation } from "@/components/WeatherStation"
 import { WeatherForecast } from "@/components/WeatherForecast"
 import { AiApiStatus } from "@/components/AiApiStatus"
 
-// Mock PLC data with Greenhouse naming
+// Mock PLC data with Climate Control naming
 const plcData = [
   {
     id: "greenhouse-001",
-    name: "Greenhouse-001 Main Process",
+    name: "Greenhouse-001 Climate Control",
     status: "online" as const,
     temperature: 24.8,
     pressure: 1.18,
@@ -19,7 +18,7 @@ const plcData = [
   },
   {
     id: "greenhouse-002", 
-    name: "Greenhouse-002 Cooling System",
+    name: "Greenhouse-002 Climate Control",
     status: "warning" as const,
     temperature: 28.5,
     pressure: 0.95,
@@ -27,7 +26,7 @@ const plcData = [
   },
   {
     id: "greenhouse-003",
-    name: "Greenhouse-003 Heating Unit",
+    name: "Greenhouse-003 Climate Control",
     status: "online" as const,
     temperature: 22.1,
     pressure: 1.25,
@@ -35,7 +34,7 @@ const plcData = [
   },
   {
     id: "greenhouse-004",
-    name: "Greenhouse-004 Backup System", 
+    name: "Greenhouse-004 Climate Control", 
     status: "offline" as const,
     temperature: 0,
     pressure: 0,
