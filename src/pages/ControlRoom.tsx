@@ -2,36 +2,40 @@
 import { useState } from "react"
 import { PlcCard } from "@/components/PlcCard"
 import { PlcDetailView } from "@/components/PlcDetailView"
+import { EnergyConsumption } from "@/components/EnergyConsumption"
+import { WeatherStation } from "@/components/WeatherStation"
+import { WeatherForecast } from "@/components/WeatherForecast"
+import { AiApiStatus } from "@/components/AiApiStatus"
 
-// Mock PLC data
+// Mock PLC data with Greenhouse naming
 const plcData = [
   {
-    id: "plc-001",
-    name: "PLC-001 Main Process",
+    id: "greenhouse-001",
+    name: "Greenhouse-001 Main Process",
     status: "online" as const,
     temperature: 24.8,
     pressure: 1.18,
     flow: 44.2
   },
   {
-    id: "plc-002", 
-    name: "PLC-002 Cooling System",
+    id: "greenhouse-002", 
+    name: "Greenhouse-002 Cooling System",
     status: "warning" as const,
     temperature: 28.5,
     pressure: 0.95,
     flow: 38.7
   },
   {
-    id: "plc-003",
-    name: "PLC-003 Heating Unit",
+    id: "greenhouse-003",
+    name: "Greenhouse-003 Heating Unit",
     status: "online" as const,
     temperature: 22.1,
     pressure: 1.25,
     flow: 42.8
   },
   {
-    id: "plc-004",
-    name: "PLC-004 Backup System", 
+    id: "greenhouse-004",
+    name: "Greenhouse-004 Backup System", 
     status: "offline" as const,
     temperature: 0,
     pressure: 0,
@@ -71,6 +75,15 @@ export default function ControlRoom() {
         </div>
       </div>
 
+      {/* System Status Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <EnergyConsumption />
+        <WeatherStation />
+        <WeatherForecast />
+        <AiApiStatus />
+      </div>
+
+      {/* PLC Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {plcData.map((plc) => (
           <PlcCard

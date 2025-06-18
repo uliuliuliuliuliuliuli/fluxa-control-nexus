@@ -4,6 +4,7 @@ import { NavLink, useLocation } from "react-router-dom"
 import { 
   Monitor, 
   Thermometer, 
+  Cloud,
   BarChart3, 
   Cable, 
   Users, 
@@ -27,6 +28,7 @@ import {
 const navigationItems = [
   { title: "Control Room", url: "/", icon: Monitor },
   { title: "Climate Adjustment", url: "/climate", icon: Thermometer },
+  { title: "Weather", url: "/weather", icon: Cloud },
   { title: "History Data", url: "/history", icon: BarChart3 },
   { title: "GPE Interface", url: "/gpe", icon: Cable },
   { title: "Access Management", url: "/access", icon: Users },
@@ -84,14 +86,16 @@ export function ScadaSidebar() {
         {!isCollapsed && (
           <SidebarGroup>
             <SidebarGroupLabel className="text-slate-400 text-xs font-medium">
-              PLC STATUS
+              GREENHOUSE STATUS
             </SidebarGroupLabel>
             <SidebarGroupContent>
               <div className="space-y-2 px-3">
-                {[1, 2, 3, 4].map((plc) => (
-                  <div key={plc} className="flex items-center justify-between text-xs">
-                    <span className="text-slate-300">PLC-{plc}</span>
-                    <div className="w-2 h-2 bg-green-400 rounded-full"></div>
+                {[1, 2, 3, 4].map((greenhouse) => (
+                  <div key={greenhouse} className="flex items-center justify-between text-xs">
+                    <span className="text-slate-300">Greenhouse-{greenhouse.toString().padStart(3, '0')}</span>
+                    <div className={`w-2 h-2 rounded-full ${
+                      greenhouse === 4 ? 'bg-red-400' : greenhouse === 2 ? 'bg-yellow-400' : 'bg-green-400'
+                    }`}></div>
                   </div>
                 ))}
               </div>
