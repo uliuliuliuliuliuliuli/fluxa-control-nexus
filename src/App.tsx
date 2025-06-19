@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/climate" element={<Layout><Climate /></Layout>} />
           <Route path="/history" element={<Layout><History /></Layout>} />
           <Route path="/weather" element={<Layout><Weather /></Layout>} />
-          <Route path="/gpe-interface" element={<Layout><GpeInterface /></Layout>} />
+          <Route path="/gpe" element={<Layout><GpeInterface /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
