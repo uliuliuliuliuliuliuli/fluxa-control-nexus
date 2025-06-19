@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -9,12 +8,12 @@ interface PlcCardProps {
   name: string
   status: 'online' | 'offline' | 'warning'
   temperature: number
-  pressure: number
-  flow: number
+  humidity: number
+  co2: number
   onViewDetails: (id: string) => void
 }
 
-export function PlcCard({ id, name, status, temperature, pressure, flow, onViewDetails }: PlcCardProps) {
+export function PlcCard({ id, name, status, temperature, humidity, co2, onViewDetails }: PlcCardProps) {
   const getStatusIcon = () => {
     switch (status) {
       case 'online':
@@ -59,12 +58,12 @@ export function PlcCard({ id, name, status, temperature, pressure, flow, onViewD
             <p className="text-white font-medium">{temperature}°C</p>
           </div>
           <div>
-            <p className="text-slate-400 mb-1">Pressure</p>
-            <p className="text-white font-medium">{pressure} bar</p>
+            <p className="text-slate-400 mb-1">Humidity</p>
+            <p className="text-white font-medium">{humidity}%</p>
           </div>
           <div>
-            <p className="text-slate-400 mb-1">Flow</p>
-            <p className="text-white font-medium">{flow} L/min</p>
+            <p className="text-slate-400 mb-1">CO2</p>
+            <p className="text-white font-medium">{co2} ppm</p>
           </div>
         </div>
         

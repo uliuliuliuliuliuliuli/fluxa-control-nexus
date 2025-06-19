@@ -77,13 +77,13 @@ export default function Climate() {
           <CardHeader>
             <CardTitle className="text-white flex items-center gap-2">
               <Wind className="w-5 h-5 text-green-400" />
-              Ventilation
+              Ventilation and CO2
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
-            <div className="text-2xl font-bold text-white">1250 CFM</div>
+            <div className="text-2xl font-bold text-white">420 ppm</div>
             <div>
-              <Label className="text-slate-300">Fan Speed (%)</Label>
+              <Label className="text-slate-300">Vent Position (%)</Label>
               <Input 
                 type="number" 
                 defaultValue="75"

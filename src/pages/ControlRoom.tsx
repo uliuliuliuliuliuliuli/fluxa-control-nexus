@@ -13,32 +13,32 @@ const plcData = [
     name: "Greenhouse-001 Climate Control",
     status: "online" as const,
     temperature: 24.8,
-    pressure: 1.18,
-    flow: 44.2
+    humidity: 67.2,
+    co2: 420
   },
   {
     id: "greenhouse-002", 
     name: "Greenhouse-002 Climate Control",
     status: "warning" as const,
     temperature: 28.5,
-    pressure: 0.95,
-    flow: 38.7
+    humidity: 72.1,
+    co2: 380
   },
   {
     id: "greenhouse-003",
     name: "Greenhouse-003 Climate Control",
     status: "online" as const,
     temperature: 22.1,
-    pressure: 1.25,
-    flow: 42.8
+    humidity: 65.8,
+    co2: 440
   },
   {
     id: "greenhouse-004",
     name: "Greenhouse-004 Climate Control", 
     status: "offline" as const,
     temperature: 0,
-    pressure: 0,
-    flow: 0
+    humidity: 0,
+    co2: 0
   }
 ]
 
@@ -91,8 +91,8 @@ export default function ControlRoom() {
             name={plc.name}
             status={plc.status}
             temperature={plc.temperature}
-            pressure={plc.pressure}
-            flow={plc.flow}
+            humidity={plc.humidity}
+            co2={plc.co2}
             onViewDetails={handleViewDetails}
           />
         ))}
