@@ -8,6 +8,7 @@ import { Layout } from "@/components/Layout";
 import Index from "./pages/Index";
 import Climate from "./pages/Climate";
 import History from "./pages/History";
+import Weather from "./pages/Weather";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/climate" element={<Layout><Climate /></Layout>} />
           <Route path="/history" element={<Layout><History /></Layout>} />
+          <Route path="/weather" element={<Layout><Weather /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
