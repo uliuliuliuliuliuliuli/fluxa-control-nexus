@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +9,7 @@ import Climate from "./pages/Climate";
 import History from "./pages/History";
 import Weather from "./pages/Weather";
 import GpeInterface from "./pages/GpeInterface";
+import ControlRoom from "./pages/ControlRoom";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +26,7 @@ const App = () => (
           <Route path="/history" element={<Layout><History /></Layout>} />
           <Route path="/weather" element={<Layout><Weather /></Layout>} />
           <Route path="/gpe" element={<Layout><GpeInterface /></Layout>} />
+          <Route path="/control-room" element={<Layout><ControlRoom /></Layout>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
