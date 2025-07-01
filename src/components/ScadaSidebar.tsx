@@ -1,8 +1,10 @@
+
 import { useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { 
   Monitor, 
   Thermometer, 
+  Droplets,
   Cloud,
   BarChart3, 
   Cable, 
@@ -28,6 +30,7 @@ import {
 const navigationItems = [
   { title: "Control Room", url: "/", icon: Monitor },
   { title: "Climate Adjustment", url: "/climate", icon: Thermometer },
+  { title: "Irrigation Control", url: "/irrigation", icon: Droplets },
   { title: "Weather", url: "/weather", icon: Cloud },
   { title: "History Data", url: "/history", icon: BarChart3 },
   { title: "GPE Interface", url: "/gpe", icon: Cable },
