@@ -1,4 +1,3 @@
-
 import { useState } from "react"
 import { NavLink, useLocation } from "react-router-dom"
 import { 
@@ -10,7 +9,8 @@ import {
   Users, 
   Settings,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  AlertTriangle
 } from "lucide-react"
 
 import {
@@ -31,6 +31,7 @@ const navigationItems = [
   { title: "Weather", url: "/weather", icon: Cloud },
   { title: "History Data", url: "/history", icon: BarChart3 },
   { title: "GPE Interface", url: "/gpe", icon: Cable },
+  { title: "Alarm Management", url: "/alarm-management", icon: AlertTriangle },
   { title: "Access Management", url: "/access", icon: Users },
   { title: "Settings", url: "/settings", icon: Settings },
 ]
