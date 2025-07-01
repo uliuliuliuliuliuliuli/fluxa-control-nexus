@@ -5,6 +5,8 @@ import { EnergyConsumption } from "@/components/EnergyConsumption"
 import { WeatherForecast } from "@/components/WeatherForecast"
 import { AiApiStatus } from "@/components/AiApiStatus"
 import { WeatherStation } from "@/components/WeatherStation"
+import { IrrigationControl } from "@/components/IrrigationControl"
+import { AlarmsOverview } from "@/components/AlarmsOverview"
 
 export default function ControlRoom() {
   const [selectedPlc, setSelectedPlc] = useState<string | null>(null)
@@ -15,36 +17,36 @@ export default function ControlRoom() {
 
   const plcData = [
     {
-      id: "plc-001",
-      name: "PLC1",
+      id: "greenhouse-001",
+      name: "Greenhouse-001",
       status: "online" as const,
       temperature: 24.5,
       humidity: 68,
       co2: 420
     },
     {
-      id: "plc-002", 
-      name: "PLC2",
+      id: "greenhouse-002", 
+      name: "Greenhouse-002",
       status: "online" as const,
       temperature: 23.8,
       humidity: 72,
       co2: 415
     },
     {
-      id: "plc-003",
-      name: "PLC3", 
+      id: "greenhouse-003",
+      name: "Greenhouse-003", 
       status: "warning" as const,
       temperature: 26.2,
       humidity: 65,
       co2: 450
     },
     {
-      id: "plc-irrigation",
-      name: "Irrigation PLC",
+      id: "greenhouse-004",
+      name: "Greenhouse-004",
       status: "online" as const,
-      temperature: 22.1,
-      humidity: 75,
-      co2: 400
+      temperature: 25.1,
+      humidity: 70,
+      co2: 435
     }
   ]
 
@@ -55,15 +57,16 @@ export default function ControlRoom() {
       </div>
 
       {/* Status Cards Row */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
         <EnergyConsumption />
         <WeatherStation />
         <WeatherForecast />
         <AiApiStatus />
+        <IrrigationControl />
       </div>
 
       {/* PLC Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {plcData.map((plc) => (
           <PlcCard
             key={plc.id}
@@ -76,6 +79,11 @@ export default function ControlRoom() {
             onViewDetails={handleViewDetails}
           />
         ))}
+        
+        {/* Alarms Overview as 5th card */}
+        <div className="md:col-span-1">
+          <AlarmsOverview />
+        </div>
       </div>
     </div>
   )
